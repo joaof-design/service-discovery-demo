@@ -2,6 +2,7 @@ package com.example.bookservice.controller;
 
 import com.example.bookservice.controller.dto.BookDto;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -11,7 +12,7 @@ import java.util.List;
 public class BookController {
 
     @GetMapping("/author/{authorId}/books")
-    public List<BookDto> getBooks() {
+    public List<BookDto> getBooks(@PathVariable("authorId") int authorId) {
         List<BookDto> books = new ArrayList<>();
 
         books.add(BookDto.builder().name("Harry Potter").publisherName("Texto Editora").build());
